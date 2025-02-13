@@ -2,7 +2,7 @@ import React from "react";
 import { TestimonialsData } from "../../mockData/data";
 import Slider from "react-slick";
 
-const Testimonials = () => {
+const Testimonials = React.memo(() => {
   const settings = {
     dots: true,
     infinite: true,
@@ -59,10 +59,10 @@ const Testimonials = () => {
               >
                 <div>
                   <div className="flex justify-left items-center gap-4 mb-2">
-                    <img className="rounded-full" src={card.img} alt="" />
+                    <img className="rounded-full" src={card.img} alt={`${card.name}'s testimonial`} />
                     <div>
                       <p className="text-xl font-bold mb-1">{card.name}</p>
-                      <p>{card.name}</p>
+                      <p>{card.position}</p>
                     </div>
                   </div>
                   <div className="py-3">
@@ -77,6 +77,6 @@ const Testimonials = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Testimonials;
